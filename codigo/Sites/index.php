@@ -13,13 +13,18 @@
     <h1> Plataforma grupo 59 & 30</h1>
     <br>
     <?php
-        if (!isset($_SESSION['username'])) {
+        if (!isset($_SESSION['username'])) { 
     ?>
         <form align="center" action="views/login.php" method="get">  
             <input type="submit" value="Iniciar sesión">
         </form>
         <form align="center" action="queries/usuarios_pasajeros.php" method="post">
-            <input type="submit" value="Ver pasajeros">
+            <input type="submit" value="Ver Usuarios"> 
+        </form>
+        <form align="center" action="queries/crea_importe_datos.php" method="post">
+            <input type="submit" value="importar usuarios"> 
+        <form align="center" action="queries/Borrar_importe.php" method="post">
+            <input type="submit" value="Borrar el importación de usuarios"> 
         </form>
     <?php } else { ?>
         <form align="center" action="views/logout.php" method="post">
