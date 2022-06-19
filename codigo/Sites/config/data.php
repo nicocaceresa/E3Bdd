@@ -7,5 +7,5 @@
     // Variables para inicir sesión G80
     $user2 = 'grupo80';
     $password2 = 'danisara'
-    $db_name2 = 'grupo80e2';
+    $db_name2 = 'grupo80e3';
 ?>
