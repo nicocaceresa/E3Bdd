@@ -1,6 +1,4 @@
-<!-- Si ya se inicio sesión se redirige al inicio, 
-    AQUI DEBEN APARECEN LAS OPCIONES PARA CADA TIPO DE USUARIO: ADMIN, COMPANIA y PASAJERO-->
-<?php session_start(); 
+<?php session_start();
     if (isset($_SESSION['username'])){
         echo "Bienvenido/a: ";
         echo $_SESSION['username'];
@@ -12,41 +10,56 @@
 ?>
 
 <body>
-    <h1> Plataforma grupo 59 & 80</h1>
-    <h2>  holas (?) </h2>
+    <h1> Plataforma grupo 59 & 30</h1>
     <br>
     <?php
         if (!isset($_SESSION['username'])) { 
     ?>
-        <!-- Si NO hay un inicio de sesión... -->
         <form align="center" action="views/login.php" method="get">  
             <input type="submit" value="Iniciar sesión">
         </form>
-
         <form align="center" action="queries/usuarios_pasajeros.php" method="post">
             <input type="submit" value="Ver Usuarios"> 
         </form>
         <form align="center" action="queries/crea_importe_datos.php" method="post">
-            <input type="submit" value="importar usuarios">
-        <form align="center" action="queries/Borrar_importe.php" method="post">
-            <input type="submit" value="Borrar el importación de usuarios"> 
-        </form>
+            <input type="submit" value="importar usuarios"> 
 
     <?php } else { ?>
-        <!-- Si YA hay un inicio de sesión...-->
+        <?php
+
+        
+
+        if ($_SESSION['username'] == 'DGAC' && $_SESSION['password']== 'admin'){
+            $_SESSION['tipo'] = 'administrador';
+            echo $_SESSION['tipo'];
+            /* Hacer form para hacer cualquier acción de administrador y sus funciones */
+        }
+
+        elseif ($_SESSION['tipo'] == 'compania'){
+            echo $_SESSION['tipo'];
+            /* Hacer form para hacer cualquier acción de compania y sus funciones */
+        }
+
+        elseif ($_SESSION['tipo'] == 'pasajero'){
+            echo $_SESSION['tipo'];
+            /* Hacer form para hacer cualquier acción de pasajeros y sus funciones */
+        }
+
+        else{
+            session_start();
+            unset($_SESSION['timeout']);
+            unset($_SESSION['password']);
+            unset($_SESSION['username']);
+            $_SESSION['valid'] = false;
+            header('Refresh: 0; url = views/fallo_inicio de sesion.php');
+        };
+
+
+        
+
+        ?>
         <form align="center" action="views/logout.php" method="post">
             <input type="submit" value="Cerrar sesión">
-        </form>
-        <form align="center" action="consultas/pokemones.php" method="post">
-            <input type="submit" value="Ver pokemones">
-        </form>
-        <form align="center" action="consultas/pelea_pokemon.php" method="post">
-            <input type="submit" value="Ver peleas">
-        </form>
-        <form align="center" action="consultas/crear_pelea_pokemon.php" method="post">
-            <input type="text" name="pid1">
-            <input type="text" name="pid2">
-            <input type="submit" value="Crear pelea">
         </form>
     <?php } ?>
     
