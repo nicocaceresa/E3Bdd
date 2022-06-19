@@ -1,3 +1,4 @@
+<!-- Listo -->
 <?php
     // Variables para iniciar sesión G59
     $user = 'grupo59';
