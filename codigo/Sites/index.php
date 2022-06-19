@@ -13,11 +13,12 @@
 
 <body>
     <h1> Plataforma grupo 59 & 80</h1>
+    <h2>  holas (?) </h2>
     <br>
     <?php
         if (!isset($_SESSION['username'])) { 
     ?>
-        <!-- Si hay un inicio de sesión, se muestra la pag para login-->
+        <!-- Si NO hay un inicio de sesión... -->
         <form align="center" action="views/login.php" method="get">  
             <input type="submit" value="Iniciar sesión">
         </form>
@@ -26,12 +27,13 @@
             <input type="submit" value="Ver Usuarios"> 
         </form>
         <form align="center" action="queries/crea_importe_datos.php" method="post">
-            <input type="submit" value="importar usuarios"> 
+            <input type="submit" value="importar usuarios">
         <form align="center" action="queries/Borrar_importe.php" method="post">
             <input type="submit" value="Borrar el importación de usuarios"> 
         </form>
+
     <?php } else { ?>
-        <!-- Si ya hay un inicio de sesión, se le da la opción de cerrarla-->
+        <!-- Si YA hay un inicio de sesión...-->
         <form align="center" action="views/logout.php" method="post">
             <input type="submit" value="Cerrar sesión">
         </form>
