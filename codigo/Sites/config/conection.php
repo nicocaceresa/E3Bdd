@@ -1,7 +1,9 @@
+<!-- Aquí se hace la conección a mabas bases de datos, deben llamarse por sus variables-->
 <?php
     try {
         require("data.php");
         $db = new PDO("pgsql:dbname=$db_name;host=localhost;port=5432;user=$user;password=$password");
+        $db2 = new PDO("psql: dbname=$db_name2; host=localhost; port=5432; user=$user2; password=$password2")
     } catch (Exception $e){
         echo "No se pudo conectar a la base de datos: $e";  
     }

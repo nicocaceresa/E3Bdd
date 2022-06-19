@@ -8,6 +8,7 @@
 <body>
 	<h3> Ingrese nombre de usuario y contraseña </h3>
 	<br>
+    <!-- lo que se ingresa DEBE VALIDARSE antes de entrar-->
     <form class="form-signin" role="form" action="login_validation.php" method="post">
         <?php echo $msg; ?>
         <input type="text" name="username" placeholder="nombre de usuario" required autofocus>
