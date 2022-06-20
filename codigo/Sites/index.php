@@ -33,6 +33,39 @@
             $_SESSION['tipo'] = 'administrador';
             echo $_SESSION['tipo'];
             /* Hacer form para hacer cualquier acción de administrador y sus funciones */
+            // Falta boton para filtrar por fechas
+            // Falta funcionalidad: cliquear propuesta y aceptar/rchazar (cambios deben verse en ambas bases)
+            
+            // mostrar tabla de pendientes
+            require("../config/conection.php");
+            $query = "SELECT *
+                    FROM vuelo AS V
+                    WHERE V.estado = 'pendiente';";
+            $result = $db2 -> prepare($query);
+            $result -> execute();
+            $data = $result -> fetchAll();
+            ?>
+            <h3> Tabla Vuelos Aprobados </h3>
+            <table>
+                <tr>
+                    <th> Id Vuelo </th>
+                    <th> Estado </th>
+                    <th> Codigo Vuelo</th>
+                    <th> Fecha Salida</th>
+                    <th> Fecha Llegada</th>
+                </tr>
+                <?php
+                    foreach ($data as $d) {
+                        echo "<tr>
+                                <td>$d[0]</td>
+                                <td>$d[1]</td>
+                                <td>$d[2]</td>
+                                <td>$d[3]</td>
+                                <td>$d[4]</td>
+                            </tr>";
+                    }
+                ?>
+            <?php
         }
 
         elseif ($_SESSION['tipo'] == 'compania'){
@@ -113,7 +146,7 @@
         elseif ($_SESSION['tipo'] == 'pasajero'){
             echo $_SESSION['tipo'];
             /* Hacer form para hacer cualquier acción de pasajeros y sus funciones */
-            
+
 
 
 
