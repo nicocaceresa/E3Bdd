@@ -3,7 +3,6 @@
 	session_start();
 ?>
 
-
 <?php
         require("../config/conection.php");
         $query = "SELECT *
@@ -25,8 +24,6 @@
 
         $data_companias = $result -> fetchAll();
 ?>
-
-
 
 
 <?php
@@ -78,9 +75,6 @@
         $_SESSION['password'] = $_POST['password'];
 
 
-
-
-        
 
         $msg = "Sesión iniciada correctamente";
         header("Location: ../index.php?msg=$msg");
