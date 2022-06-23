@@ -38,8 +38,7 @@
         elseif ($_SESSION['tipo'] == 'compania'){
             echo $_SESSION['tipo'];
             /* Hacer form para hacer cualquier acción de compania y sus funciones */
-            $name = $_POST['username']
-            echo $name
+            echo $_SESSION['username'];
             // despues subo lo que tenia x2
              }
 
@@ -61,7 +60,7 @@
             header('Refresh: 0; url = views/fallo_inicio de sesion.php');
         
 
-        ?>
+        }?>
         <form align="center" action="views/logout.php" method="post">
             <input type="submit" value="Cerrar sesión">
         </form>
