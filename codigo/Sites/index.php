@@ -23,7 +23,8 @@
             <input type="submit" value="Ver Usuarios"> 
         </form>
         <form align="center" action="queries/crea_importe_datos.php" method="post">
-            <input type="submit" value="importar usuarios"> 
+            <input type="submit" value="importar usuarios">
+        </form>
 
     <?php } else { ?> 
         <?php
@@ -39,7 +40,12 @@
             echo $_SESSION['tipo'];
             /* Hacer form para hacer cualquier acción de compania y sus funciones */
             echo $_SESSION['username'];
-            // despues subo lo que tenia x2
+            // por algun motivo no me funciona el header para redirigir y no aparece el boton :c
+            ?>
+            <form align="center" action="views/vista_compania.php" method="post">
+            <input type="submit" value="Ver Vuelos aprobados"> 
+            </form>
+            <?php 
              }
 
         elseif ($_SESSION['tipo'] == 'pasajero'){
