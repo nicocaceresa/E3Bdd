@@ -7,7 +7,7 @@
 
 <body>
     <br>
-    <h1> Bienvenido/a  a tu Vista compañia</h1>
+    <h1> Bienvenido/a  a tu Vista Compañia </h1> <?php echo $_SESSION['username']?>
     <br>
     <h3> Tabla vuelos APROBADOS </h3>
     <br>

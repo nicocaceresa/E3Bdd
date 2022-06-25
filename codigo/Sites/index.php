@@ -38,7 +38,7 @@
             $msg = "Redirigido a vista DGAC";
             ?>
             <form align="center" action="views/vista_dgac.php?msg=$msg" method="post">
-            <input type="submit" value="Ver Vuelos"> 
+            <input type="submit" value="Evaluar Propuestas"> 
             </form>
             <?php 
             
@@ -56,6 +56,7 @@
             </form>
             <?php 
              }
+             // Ver si se puede hacer un funcionalidad aparte que agregue valor a la página
 
         elseif ($_SESSION['tipo'] == 'pasajero'){
             echo $_SESSION['tipo'];
