@@ -36,6 +36,7 @@
             echo $_SESSION['tipo'];
             // Se redirecciona a la vista DGAC
             $msg = "Redirigido a vista DGAC";
+            $_SESSION['fechas'] = 'false';
             ?>
             <form align="center" action="views/vista_dgac.php?msg=$msg" method="post">
             <input type="submit" value="Evaluar Propuestas"> 
