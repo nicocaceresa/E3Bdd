@@ -18,8 +18,7 @@
 
     </form>
     <?php 
-        echo $_SESSION['username'];
-        echo $_SESSION['fechas'];
+
         if ($_SESSION['fechas']== 'true') {
             
             $_SESSION['fechas'] = 'false';
@@ -62,8 +61,8 @@
                         foreach ($data as $d) {
                             echo "<tr>
                                     <td>
-                                    <form action='' method='get'>
-                                    <select>
+                                    <form action='logica_dgac.php?msg=$msg' method='post'>
+                                    <select name='estado'>
                                         <option value='' disabled selected>$d[0]</option>
                                         <option value='aceptado'>Aceptar</option>
                                         <option value='rechazado'>Rechazar</option>
