@@ -34,7 +34,14 @@
         if ($_SESSION['username'] == 'DGAC' && $_SESSION['password']== 'admin'){
             $_SESSION['tipo'] = 'administrador';
             echo $_SESSION['tipo'];
-            // dsps subo lo que tenia 
+            // Se redirecciona a la vista DGAC
+            $msg = "Redirigido a vista DGAC";
+            ?>
+            <form align="center" action="views/vista_dgac.php?msg=$msg" method="post">
+            <input type="submit" value="Ver Vuelos"> 
+            </form>
+            <?php 
+            
         }
 
         elseif ($_SESSION['tipo'] == 'compania'){
