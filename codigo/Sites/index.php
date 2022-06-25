@@ -24,7 +24,7 @@
             <input type="submit" value="Ver Usuarios"> 
         </form>
         <form align="center" action="queries/crea_importe_datos.php" method="post">
-            <input type="submit" value="importar usuarios">
+            <input type="submit" value="Importar usuarios">
         </form>
 
     <?php } else { ?> 
