@@ -14,9 +14,10 @@
     <br>
     <?php
         // Si NO hay sesión iniciada...
-        if (!isset($_SESSION['username'])) { 
+        if (!isset($_SESSION['username'])) {
+            $msg = "Redireccionando al login"
     ?>
-        <form align="center" action="views/login.php" method="get">  
+        <form align="center" action="views/login.php?msg=$msg" method="get">  
             <input type="submit" value="Iniciar sesión">
         </form>
         <form align="center" action="queries/usuarios_pasajeros.php" method="post">
@@ -40,10 +41,11 @@
             echo $_SESSION['tipo'];
             /* Hacer form para hacer cualquier acción de compania y sus funciones */
             echo $_SESSION['username'];
-            // por algun motivo no me funciona el header para redirigir y no aparece el boton :c
+            // se redirecciona a la vista de compania
+            $msg = "Redirigido a vista compañias";
             ?>
-            <form align="center" action="views/vista_compania.php" method="post">
-            <input type="submit" value="Ver Vuelos aprobados"> 
+            <form align="center" action="views/vista_compania.php?msg=$msg" method="post">
+            <input type="submit" value="Ver Vuelos"> 
             </form>
             <?php 
              }
