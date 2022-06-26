@@ -9,7 +9,7 @@
 
 <body>
 
-<?php echo "$_Session['username'], llena los campos para hacer tu Reserva"; ?>
+<?php echo $_SESSION['username']; echo " Llena los campos para hacer tu Reserva"; ?>
 
 
 
