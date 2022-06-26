@@ -6,11 +6,9 @@
 <?php include('../templates/header.html'); ?>
 
 <body>
-	<h3> Pag. en progreso uwu </h3>
+	<h3> Aquí puedes ver los vuelos pendientes y evaluarlos  </h3>
 	<br>
-    <!-- Mostrar listado vuelos pendientes, usuario puede cliquear la propuesta y aceptar/rechazar
-        CAMBIOS DEBEN REFLEJARSE EN AMBAS BASES
-        tambien pueden filtrar las propuestas por fecha (2 campos para ingresar fecha y boton filtrar)-->
+    
     <form align="center" action='asignar_fechas.php' method="get">
         <input type="date" name="fecha1" placeholder="fecha 1" required autofocus>
         <input type="date" name="fecha2" placeholder="fecha 2" required>
