@@ -1,14 +1,17 @@
 <?php
-	$msg = $_GET['msg'];
+    $var = intval($_GET['var']);
     session_start();
+    $estado= $_POST['estado'];
+
+    require("../config/conection.php");
+    $query = "UPDATE Vuelo SET estado = '$estado' WHERE propuesta_vuelo_id = $var;";
+    $result = $db2 -> prepare($query);
+    $result -> execute();
+
+    require("../config/conection.php");
+    $query2 = "UPDATE Vuelos SET estado = '$estado' WHERE vid = $var;";
+    $result2 = $db -> prepare($query2);
+    $result2 -> execute();
+
+    header('Location: ../views/vista_dgac.php?msg=$msg')
 ?>
-
-<?php include('../templates/header.html'); ?>
-
-<body>
-	<h3> no se que hay aqui akjdsbkjvb </h3>
-	<br>
-    <?php
-        $estado= $_POST['estado'];
-        echo $estado;
-        ?>

@@ -61,9 +61,9 @@
                         foreach ($data as $d) {
                             echo "<tr>
                                     <td>
-                                    <form action='logica_dgac.php?msg=$msg' method='post'>
+                                    <form action='logica_dgac.php?var=$d[0]' method='post'>
                                     <select name='estado'>
-                                        <option value='' disabled selected>$d[0]</option>
+                                        <option value='$d[0]' name='id' disabled selected>$d[0]</option>
                                         <option value='aceptado'>Aceptar</option>
                                         <option value='rechazado'>Rechazar</option>
                                     </select>
