@@ -62,7 +62,13 @@
         elseif ($_SESSION['tipo'] == 'pasajero'){
             echo $_SESSION['tipo'];
             /* Hacer form para hacer cualquier acción de pasajeros y sus funciones */
-
+            // se redirecciona a la vista de compania
+            $msg = "Redirigido a vista pasajero";
+            ?>
+            <form align="center" action="views/vista_pasajero.php?msg=$msg" method="post">
+            <input type="submit" value="Hacer reserva?"> 
+            </form>
+            <?php 
 
 
 
