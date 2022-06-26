@@ -12,7 +12,9 @@ session_start();
     <?php
     $pas = $_SESSION['username'];
     require("../config/conection.php");
-    $query = "SELECT R.reserva_id, R.pasaporte_comprador, R.codigo_reserva FROM reservas AS R WHERE pasaporte_comprador = '$pas'";
+    $query = "SELECT T.pasaporte_pasajero, T.numero_ticket, T.numero_asiento, T.clase, T.comida_y_maleta
+                FROM ticket AS T 
+                WHERE T.pasaporte_pasajero = 'V03976673';";
     $result = $db -> prepare($query);
     $result -> execute();
     $data = $result -> fetchAll();
@@ -20,9 +22,21 @@ session_start();
 
             <table>
                     <tr>
-                        <th> Id Reserva </th>
-                        <th> Pasaporte Comprador </th>
-                        <th> Codigo Reserva </th>
+                        
+                        <th> Pasaporte Pasajero </th>
+                        <th> Nº Ticket </th>
+                        <th> Asiento </th>
+                        <th> Clase </th>
+                        <th> Comida/Equipaje </th>
+                        <!--
+                        <th> Id Vuelo </th>
+                        <th> Estado Vuelo </th>
+                        <th> Compañia </th>
+                        <th> Aeronave </th>
+                        <th> Aerodromo Origen </th>
+                        <th> País Origen </th>
+                        <th> Aerodromo Destino </th>
+                        <th> País Destino </th> -->
 
                     </tr>
 
@@ -32,6 +46,9 @@ session_start();
                                     <td>$d[0]</td>
                                     <td>$d[1]</td>
                                     <td>$d[2]</td>
+                                    <td>$d[3]</td>
+                                    <td>$d[4]</td>
+
 
                                 </tr>";
                         }
