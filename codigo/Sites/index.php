@@ -66,7 +66,7 @@
             $msg = "Redirigido a vista pasajero";
             ?>
             <form align="center" action="views/vista_pasajero.php?msg=$msg" method="post">
-            <input type="submit" value="Hacer reserva?"> 
+            <input type="submit" value="Ver reservas"> 
             </form>
             <?php 
 
