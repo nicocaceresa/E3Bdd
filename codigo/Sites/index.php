@@ -78,6 +78,10 @@
             <form align="center" action="views/vista_reservas.php?msg=$msg" method="post">
             <input type="submit" value="Ver reservas"> 
             </form>
+
+            <form align="center" action="views/vista_hacer_reserva.php?msg=$msg" method="post">
+            <input type="submit" value="Hacer reserva"> 
+            </form>
             <?php 
 
 
