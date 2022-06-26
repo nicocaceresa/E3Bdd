@@ -62,10 +62,20 @@
         elseif ($_SESSION['tipo'] == 'pasajero'){
             echo $_SESSION['tipo'];
             /* Hacer form para hacer cualquier acción de pasajeros y sus funciones */
-            // se redirecciona a la vista de compania
-            $msg = "Redirigido a vista pasajero";
+            // Se debe mostrar su nombre y num pasaporte
+           
+            $pas = $_SESSION['username'];
+            require("config/conection.php");
+            $query = "SELECT nombre_pasajero FROM pasajeros WHERE pasaporte_pasajero = '$pas';";
+            $result = $db -> prepare($query);
+            $result -> execute();
+            $data = $result -> fetchAll();
+            foreach ($data as $d) {
+                echo "Nombre Pasajero: $d[0]";
+            }
+            echo "Pasaporte Pasajero: $pas"
             ?>
-            <form align="center" action="views/vista_pasajero.php?msg=$msg" method="post">
+            <form align="center" action="views/vista_reservas.php?msg=$msg" method="post">
             <input type="submit" value="Ver reservas"> 
             </form>
             <?php 
