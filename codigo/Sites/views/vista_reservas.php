@@ -12,9 +12,10 @@ session_start();
     <?php
     $pas = $_SESSION['username'];
     require("../config/conection.php");
-    $query = "SELECT T.pasaporte_pasajero, T.reserva_id, T.numero_ticket, T.numero_asiento, T.clase, T.comida_y_maleta, V.vuelo_id, V.estado, V.codigo_compania, V.codigo_aeronave, (A1.nombre, A1.nombre_pais) AS aa1, (A2.nombre, A2.nombre_pais) AS aa2
-                FROM ticket AS T, vuelos AS V, aerodromos AS A1, aerodromos AS A2
-                WHERE T.pasaporte_pasajero = '$pas' AND T.vuelo_id = V.vuelo_id AND V.aerodromo_salida_id = A1.aerodromo_id AND V.aerodromo_llegada_id = A2.aerodromo_id;";
+    // sacar algunos componentes relacionados al ticket!!!!
+    $query = "SELECT R.pasaporte_comprador, T.pasaporte_pasajero, T.reserva_id, T.numero_ticket, T.numero_asiento, T.clase, T.comida_y_maleta, V.vuelo_id, V.estado, V.codigo_compania, V.codigo_aeronave, (A1.nombre, A1.nombre_pais) AS aa1, (A2.nombre, A2.nombre_pais) AS aa2
+                FROM reservas AS R, ticket AS T, vuelos AS V, aerodromos AS A1, aerodromos AS A2
+                WHERE R.reserva_id = T.reserva_id AND R.pasaporte_comprador = '$pas' AND T.vuelo_id = V.vuelo_id AND V.aerodromo_salida_id = A1.aerodromo_id AND V.aerodromo_llegada_id = A2.aerodromo_id;";
     $result = $db -> prepare($query);
     $result -> execute();
     $data = $result -> fetchAll();
@@ -22,7 +23,7 @@ session_start();
 
             <table>
                     <tr>
-                        
+                        <th> Pasaporte Comprador (Tú) </th>
                         <th> Pasaporte Pasajero </th>
                         <th> Id Reserva </th>
                         <th> Nº Ticket </th>
@@ -53,7 +54,7 @@ session_start();
                                     <td>$d[9]</td>
                                     <td>$d[10]</td>
                                     <td>$d[11]</td>
-
+                                    <td>$d[12]</td>
                                 </tr>";
                         }
                     ?>
