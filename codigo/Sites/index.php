@@ -63,7 +63,7 @@
             echo $_SESSION['tipo'];
             /* Hacer form para hacer cualquier acción de pasajeros y sus funciones */
             // Se debe mostrar su nombre y num pasaporte
-           
+            $_SESSION['valid'] = 'false';
             $pas = $_SESSION['username'];
             require("config/conection.php");
             $query = "SELECT nombre_pasajero FROM pasajeros WHERE pasaporte_pasajero = '$pas';";

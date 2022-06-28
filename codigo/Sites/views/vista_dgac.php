@@ -23,8 +23,6 @@
 
             $date1 = $_SESSION['fecha1'];
             $date2 = $_SESSION['fecha2'];
-            echo $date1;
-            echo $date2;
 
             // Mostrar tabla con vuelos pendientes!
             echo 'TABLA VUELOS PENDIENTES'; 
